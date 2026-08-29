@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lost in los angeles</title>
 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff5f6;
+        }
+
+        .image-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            aspect-ratio: 4 / 3;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .see-background {
+            position: absolute;
+
+            width: 95%;
+            height: 90%;
+
+            background-color: #f1efef;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #image-link {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #image {
+            width: 75%;
+            height: 75%;
+
+            object-fit: cover;
+            display: block;
+        }
+
+        .frame {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: fill;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+        #image-link {
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="image-container">
+
+    <div class="see-background">
+
+        <a id="image-link" href="#" target="_blank">
+            <img id="image" src="" alt="">
+        </a>
+
+    </div>
+
+    <img class="frame" src="marco.png" alt="Marco">
+
+</div>
+
+<script>
+
+    const images = [
+        { src: "lun.jpg", link: "https://youtu.be/_v94XqFW4Qw" },
+        { src: "mar.jpg", link: "https://secreto.site/bhc2" },
+        { src: "mie.jpg", link: "https://youtu.be/bjNbmqP4NwI" },
+        { src: "jue.jpg", link: "https://on.soundcloud.com/mddfD49OCz3tgCs57M" },
+        { src: "vie.jpg", link: "https://youtu.be/m0d4zcuiu9g" },
+        { src: "sab.jpg", link: "https://youtu.be/EWlO_ztlWPA" },
+        { src: "dom.jpg", link: "https://youtu.be/tqDdMmT5AjQ" }
+    ];
+
+    const today = (new Date().getDay() + 6) % 7;
+
+    const todayImage = images[today];
+
+    document.getElementById("image").src = todayImage.src;
+    document.getElementById("image-link").href = todayImage.link;
+
+</script>
+
+</body>
+</html>
